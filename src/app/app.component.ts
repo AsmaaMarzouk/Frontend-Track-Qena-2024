@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// class decorator
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
