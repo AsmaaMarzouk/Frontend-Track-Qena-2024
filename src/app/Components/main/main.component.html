@@ -1,1 +1,24 @@
-<p>main works!</p>
+<!-- interpolation => {{}} -->
+<!-- <h1>{{trackName}}</h1> -->
+<!-- <h2>{{sayHelloToTrack()}}</h2> -->
+
+<p>Test Class Model</p>
+<h1>{{track.trackName}}</h1>
+<h3>Track Number: {{track.trackNum}}</h3>
+<img src="{{track.trackImg}}" width="600">
+
+
+<p>Test Interface Model</p>
+
+<h2>{{trackData.trackName}}</h2>
+<img src="{{trackData.trackImg}}" width="600">
+
+<!-- <h3>{{trackData.trackCourses[0]}}</h3>
+<h3>{{trackData.trackCourses[1]}}</h3>
+<h3>{{trackData.trackCourses[2]}}</h3> -->
+
+<!-- *ngFor => on element -->
+<!-- for - of  -->
+<!-- for(let i of arr){} -->
+
+<h3 *ngFor="let course of trackData.trackCourses">{{course}}</h3>

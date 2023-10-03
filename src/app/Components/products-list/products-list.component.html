@@ -1,0 +1,47 @@
+<!-- event binding -->
+<button class="btn btn-primary" (click)="toggleImage()">Show|Hide Image</button>
+
+<!-- Two way binding -->
+<div class="row mb-3">
+  <label for="filterByName" class="col-md-2" >Filter By Name:</label>
+  <input type="text" id="filterByName" name="filterByName" class="form-control col-md-10" [(ngModel)]="listFilter">
+</div>
+
+<!-- value => on way binding => property binding -->
+<!-- <div class="mb-4">
+  <label for="filterByName">User Name:</label>
+  <input type="text" id="filterByName" name="filterByName" [value]="userName" class="form-control">
+</div> -->
+
+<!-- two way binding -->
+<!-- <div class="mb-4">
+  <label for="filterByName">User Name:</label>
+  <input type="text" id="filterByName" name="filterByName" [(ngModel)]="userName" class="form-control">
+</div>
+<h3>{{userName}}</h3> -->
+<!-- ########################## -->
+<div class="row">
+  <!-- property binding => class binding -->
+  <!-- <div class="col-sm-4 mb-3" *ngFor="let prd of productsList" [class.text-danger]="prd.price>10000" [class.changeBG]="prd.price<3000"> -->
+
+  <!-- property binding => style binding -->
+  <!-- ternary operator => condition ? true : false -->
+  <!-- <div class="col-sm-4 mb-3" *ngFor="let prd of productsList" [style.color]="(prd.price>20000)?'red':'blue'" [style.background-color]="(prd.price>20000)?'lightblue':'lightgrey'"> -->
+
+  <!-- <div class="col-sm-4 mb-3" *ngFor="let prd of productsList"> -->
+    <div class="col-sm-4 mb-3" *ngFor="let prd of productsListFilter">
+    <!-- <img src="{{prd.PrdimgURL}}" class="img-fluid"> -->
+    <!-- property binding -->
+
+    <img [src]="prd.PrdimgURL" class="img-fluid" *ngIf="flag">
+    <h3>{{prd.name}}</h3>
+    <h4>{{prd.price}}</h4>
+
+    <button class="btn btn-danger" [disabled]="prd.quantity==0">Add To Cart<i
+        class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
+    <!-- <button class="btn btn-danger" [hidden]="prd.quantity==0">Add To Cart<i
+      class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button> -->
+  </div>
+
+
+</div>
