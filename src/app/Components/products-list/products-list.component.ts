@@ -19,7 +19,10 @@ productsListFilter:Iproduct[]=[];
  this.productsListFilter= this.performFilter(value);
 //  console.log(this.productsListFilter);
 
+
 }
+// test:string="hello"
+date1:Date=new Date();
 constructor(){
   // tables => 1 , chairs =>2 , tv units=>3
   this.productsList=[
