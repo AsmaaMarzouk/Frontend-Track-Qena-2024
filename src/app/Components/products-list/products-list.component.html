@@ -7,10 +7,10 @@
 <button class="btn btn-primary" (click)="toggleImage()">Show|Hide Image</button>
 
 <!-- Two way binding -->
-<div class="row mb-3">
+<!-- <div class="row mb-3">
   <label for="filterByName" class="col-md-2">Filter By Name:</label>
   <input type="text" id="filterByName" name="filterByName" class="form-control col-md-10" [(ngModel)]="listFilter">
-</div>
+</div> -->
 
 <!-- value => on way binding => property binding -->
 <!-- <div class="mb-4">
@@ -47,7 +47,7 @@
   <!-- Day3 -->
   <ng-container *ngFor="let prd of productsListFilter">
     <!-- <div class="col-sm-4 mb-3" *ngIf="prd.quantity>0"> -->
-    <div class="col-sm-4 mb-3" [ngStyle]="{'color':(prd.quantity==0)?'red':'blue'}">
+    <div class="col-sm-4 mb-3" [ngStyle]="{'color':(prd.quantity==0)?'red':'blue'}" [routerLink]="['/ProductDetails',prd.id]">
       <!-- ################## -->
       <!-- <img src="{{prd.PrdimgURL}}" class="img-fluid"> -->
       <!-- property binding -->
@@ -90,8 +90,10 @@
         <ng-template #outofstockRef>Out Of Stock</ng-template>
       </div>
 
-      <button class="btn btn-danger" [disabled]="prd.quantity==0">Add To Cart<i
+      <button class="btn btn-danger" [disabled]="prd.quantity==0" (click)="addToCart(prd)">Add To Cart<i
           class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
+      <!-- <button [routerLink]="['/ProductDetails',prd.id]" class="btn btn-primary">Details</button> -->
+
       <!-- <button class="btn btn-danger" [hidden]="prd.quantity==0">Add To Cart<i
       class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button> -->
     </div>

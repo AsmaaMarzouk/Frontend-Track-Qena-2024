@@ -15,7 +15,7 @@ export class MainComponent {
 // }
 
 // property => model class
-track:TrackInfo=new TrackInfo("Frontend Track",44,"https://fullscale.io/wp-content/uploads/2022/04/front-end-tools.png");
+track:TrackInfo=new TrackInfo("Frontend Track",44,"https://www.weblineindia.com/wp-content/uploads/2017/04/front-end-development-with-weblineindia-1.jpg");
 // track2:TrackInfo=new TrackInfo("MEARN Track",42,"")
 
 
