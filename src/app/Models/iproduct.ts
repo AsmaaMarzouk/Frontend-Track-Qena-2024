@@ -6,4 +6,5 @@ export interface Iproduct {
   Material: string;
   categoryID: number;
   PrdimgURL?: string;
+  details: string;
 }

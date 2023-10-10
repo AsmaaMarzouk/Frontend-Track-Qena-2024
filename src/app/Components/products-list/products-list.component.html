@@ -47,7 +47,10 @@
   <!-- Day3 -->
   <ng-container *ngFor="let prd of productsListFilter">
     <!-- <div class="col-sm-4 mb-3" *ngIf="prd.quantity>0"> -->
-    <div class="col-sm-4 mb-3" [ngStyle]="{'color':(prd.quantity==0)?'red':'blue'}" [routerLink]="['/ProductDetails',prd.id]">
+      <!-- <div class="col-sm-4 mb-3" [ngStyle]="{'color':(prd.quantity==0)?'red':'blue'}" [routerLink]="['/ProductDetails',prd.id]"> -->
+
+        <!-- Day5 -->
+        <div class="col-sm-4 mb-3" [ngStyle]="{'color':(prd.quantity==0)?'red':'blue'}" (click)="prdDetails(prd.id)">
       <!-- ################## -->
       <!-- <img src="{{prd.PrdimgURL}}" class="img-fluid"> -->
       <!-- property binding -->
