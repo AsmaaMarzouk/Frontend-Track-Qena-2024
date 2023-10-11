@@ -16,6 +16,8 @@
                   <li class="nav-tab"><a routerLink="/Products" routerLinkActive="classActive">Products</a></li>
                   <li class="nav-tab"><a routerLink="/ProductsParent" routerLinkActive="classActive">Products Parent</a></li>
                   <li class="nav-tab"><a routerLink="/AboutUs" routerLinkActive="classActive">AboutUs</a></li>
+                  <li class="nav-tab"><a routerLink="/UserLogin" routerLinkActive="classActive" [hidden]="isUserLog">Login</a></li>
+                  <li class="nav-tab"><a routerLink="/UserLogOut" routerLinkActive="classActive" [hidden]="!isUserLog">LogOut</a></li>
               </ul>
           </div>
       </nav>

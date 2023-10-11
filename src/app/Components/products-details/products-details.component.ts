@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { ProductsService } from 'src/app/Services/products.service';
 import { Location } from '@angular/common';
+import { ProductsWithApiService } from 'src/app/Services/products-with-api.service';
 
 @Component({
   selector: 'app-products-details',
@@ -14,12 +15,17 @@ export class ProductsDetailsComponent implements OnInit {
   product: Iproduct | undefined = undefined;
   productIDSList: number[] = [];
   currentPrdIndex: number = 0;
+
+  // Day6
+  productsAfterSearch:Iproduct[]=[];
+  // ##########
   // inject
   constructor(
     private prdService: ProductsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private productWithApiService: ProductsWithApiService
   ) {}
   ngOnInit(): void {
     // convert to number => Number , parseInt , +
@@ -35,23 +41,30 @@ export class ProductsDetailsComponent implements OnInit {
     // console.log(this.productIDSList);
 
     this.activatedRoute.paramMap.subscribe((param) => {
-      this.productID=(param.get('prodID'))?Number(param.get('prodID')):0;
-      let foundPrd=this.prdService.getProdByID(this.productID);
-      if(foundPrd){
-        this.product=foundPrd;
-      }
-      else{
-        alert("Products not found");
+      this.productID = param.get('prodID') ? Number(param.get('prodID')) : 0;
+      // let foundPrd=this.prdService.getProdByID(this.productID);
+      // if(foundPrd){
+      //   this.product=foundPrd;
+      // }
+      // else{
+      //   alert("Products not found");
 
-        this.router.navigate(['/Products']);
-        // this.location.back();
-      }
+      //   this.router.navigate(['/Products']);
+      //   // this.location.back();
+      // }
+
+      // Day6
+      this.productWithApiService
+        .getProductByID(this.productID)
+        .subscribe((data) => {
+          this.product = data;
+          // console.log(data);
+        });
     });
   }
   goBackFunc() {
     this.router.navigate(['/Products']);
     // this.location.back()
-
   }
   prevFunc() {
     this.currentPrdIndex = this.productIDSList.indexOf(this.productID);
@@ -69,4 +82,21 @@ export class ProductsDetailsComponent implements OnInit {
       this.productIDSList[++this.currentPrdIndex],
     ]);
   }
+
+  // Day6
+  searchWithMat(search: any) {
+    this.productWithApiService.searchByPrdMaterial(search).subscribe({
+      next: (data) => {
+        // console.log(data);
+        this.productsAfterSearch=data;
+      },
+      error:(err)=>{
+
+        console.log(err);
+
+      }
+    });
+  }
+
+  // #################
 }

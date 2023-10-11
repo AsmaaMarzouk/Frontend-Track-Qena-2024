@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
+import { ProductsWithApiService } from 'src/app/Services/products-with-api.service';
 import { ProductsService } from 'src/app/Services/products.service';
 
 @Component({
@@ -43,7 +44,7 @@ export class ProductsListComponent implements OnInit {
   date1: Date = new Date();
 
   // inject
-  constructor(private prdService: ProductsService,private router: Router) {
+  constructor(private prdService: ProductsService,private router: Router,private prdWithapiService:ProductsWithApiService) {
     // Day4
     // this.onaddNewPrd=new EventEmitter<Iproduct>();
     // ###########################
@@ -147,7 +148,24 @@ export class ProductsListComponent implements OnInit {
     // this.productsListFilter=Array.from(this.productsList);
 
     // Day5
-    this.productsListFilter = this.prdService.getAllProducts();
+    // this.productsListFilter = this.prdService.getAllProducts();
+
+    // Day6
+
+    this.prdWithapiService.getAllProducts().subscribe(
+      {
+        next:(data)=>{
+
+          this.productsListFilter=data;
+          // console.log(data);
+
+        },
+        error:(err)=>{
+          console.log(err);
+
+        }
+      }
+    )
   }
 
   toggleImage() {
