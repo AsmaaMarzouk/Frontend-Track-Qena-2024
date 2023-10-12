@@ -1,5 +1,6 @@
 {
-  "products": [{
+  "products": [
+    {
       "id": 2,
       "name": "Anders Glass Top Coffee Table",
       "price": 11200,
@@ -90,5 +91,24 @@
       "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eveniet veritatis unde suscipit exercitationem optio fugiat deserunt quia quaerat quisquam impedit tempore, enim quasi amet commodi sed eum? Harum, tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eveniet veritatis unde suscipit exercitationem optio fugiat deserunt quia quaerat quisquam impedit tempore, enim quasi amet commodi sed eum? Harum, tenetur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eveniet veritatis unde suscipit exercitationem optio fugiat deserunt quia quaerat quisquam impedit tempore, enim quasi amet commodi sed eum? Harum, tenetur."
     }
   ],
-  "categories": []
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Ahmed",
+      "lastName": "Wael",
+      "email": "ahmed@gmail.com"
+    },
+    {
+      "firstName": "Asmaa",
+      "lastName": "Ahmed",
+      "email": "asmaaahmed@gmail.com",
+      "id": 46
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Omar",
+      "email": "moh@gmail.com",
+      "id": 47
+    }
+  ]
 }
